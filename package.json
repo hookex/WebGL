@@ -1,0 +1,33 @@
+{
+  "name": "webgl",
+  "version": "1.0.0",
+  "description": "WebGL test",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --progress --hot --open -d",
+    "start-local": "webpack-dev-server --env.local --progress --hot --open -d",
+    "build": "webpack --env.local --env.analyze --profile --json > stats.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hookex/WebGL.git"
+  },
+  "keywords": [
+    "WebGL"
+  ],
+  "author": "hooke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hookex/WebGL/issues"
+  },
+  "homepage": "https://github.com/hookex/WebGL#readme",
+  "dependencies": {
+    "luma.gl": "^7.0.1",
+    "webpack": "^4.31.0"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.3.1"
+  }
+}
