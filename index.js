@@ -95,6 +95,17 @@ function initBuffers(gl) {
         new Float32Array(positions),
         gl.STATIC_DRAW);
 
+    var colors = [
+        1.0,  1.0,  1.0,  1.0,    // 白色
+        1.0,  0.0,  0.0,  1.0,    // 红色
+        0.0,  1.0,  0.0,  1.0,    // 绿色
+        0.0,  0.0,  1.0,  1.0     // 蓝色
+    ];
+
+    squareVerticesColorBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, squareVerticesColorBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
+
     return {
         position: positionBuffer,
     };
