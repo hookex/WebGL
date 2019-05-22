@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="28f8c711-063e-4a78-9081-47d267847ccb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/WebGL.xmind" beforeDir="false" afterPath="$PROJECT_DIR$/WebGL.xmind" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="28f8c711-063e-4a78-9081-47d267847ccb" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -19,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
+            <state relative-caret-position="293">
+              <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
             </state>
           </provider>
         </entry>
@@ -74,7 +71,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1395" />
     <option name="height" value="877" />
@@ -133,15 +130,15 @@
       <workItem from="1558332770024" duration="726000" />
       <workItem from="1558333517422" duration="20000" />
       <workItem from="1558333552204" duration="297000" />
-      <workItem from="1558333867134" duration="5145000" />
+      <workItem from="1558333867134" duration="5362000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8143000" />
+    <option name="totallyTimeSpent" value="8360000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1395" height="877" extended-state="1" />
+    <frame x="0" y="23" width="1395" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.54199475" visible="true" weight="0.18920916" />
@@ -232,8 +229,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
+        <state relative-caret-position="293">
+          <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
         </state>
       </provider>
     </entry>
