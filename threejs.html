@@ -1,0 +1,79 @@
+<html>
+<head>
+    <title>My first three.js app</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%
+        }
+    </style>
+</head>
+<body>
+<script src="http://threejs.org/build/three.js"></script>
+<script src="/static/WebGL.js"></script>
+<script src="/static/EffectComposer.js"></script>
+<script src="/static/RenderPass.js"></script>
+<script>
+
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    var geometry = new THREE.BoxGeometry(1, 1, 1);
+    var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+
+    var cubes = [];
+    var SIDE = 200;
+
+    group = new THREE.Group();
+
+    for (let i = 0; i < SIDE; i++) {
+        for (let j = 0; j < SIDE; j++) {
+            let cube = new THREE.Mesh(geometry, material);
+            cube.position.x = i * 2
+            cube.position.y = j * 2
+            cubes.push(cube)
+            group.add(cube);
+        }
+    }
+
+    scene.add(group)
+
+    camera.position.x = SIDE;
+    camera.position.y = SIDE;
+    camera.position.z = SIDE;
+
+
+    var parameters = {
+        format: THREE.RGBFormat,
+        stencilBuffer: false
+    };
+    var size = renderer.getDrawingBufferSize( new THREE.Vector2() );
+    var renderTarget = new THREE.WebGLMultisampleRenderTarget( size.width, size.height, parameters );
+
+    var renderPass = new THREE.RenderPass( scene, camera );
+    composer1 = new THREE.EffectComposer( renderer, renderTarget);
+
+    var animate = function () {
+        requestAnimationFrame(animate);
+
+        for (let i = 0; i < cubes.length; i++) {
+            let cube = cubes[i];
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+        }
+
+        composer1.render();
+    };
+
+    animate();
+</script>
+</body>
+</html>

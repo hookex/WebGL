@@ -4,7 +4,6 @@ import {
     ModelNode,
     picking,
     dirlight,
-    readPixelsToArray,
     Buffer,
     CubeGeometry
 } from '@luma.gl/core';
@@ -17,10 +16,6 @@ Cube drawn with <b>instanced rendering</b>.
 A luma.gl <code>Cube</code>, rendering 65,536 instances in a
 single GPU draw call using instanced vertex attributes.
 `;
-
-function getDevicePixelRatio() {
-    return typeof window !== 'undefined' ? window.devicePixelRatio : 1;
-}
 
 const SIDE = 256;
 
@@ -37,14 +32,6 @@ class InstancedCube extends ModelNode {
         }
         offsets = new Float32Array(offsets);
 
-        const pickingColors = new Uint8ClampedArray(SIDE * SIDE * 2);
-        for (let i = 0; i < SIDE; i++) {
-            for (let j = 0; j < SIDE; j++) {
-                pickingColors[(i * SIDE + j) * 2 + 0] = i;
-                pickingColors[(i * SIDE + j) * 2 + 1] = j;
-            }
-        }
-
         const colors = new Float32Array(SIDE * SIDE * 3).map(() => Math.random() * 0.75 + 0.25);
 
         const vs = `\
@@ -53,7 +40,6 @@ attribute vec3 positions;
 attribute vec3 normals;
 attribute vec2 instanceOffsets;
 attribute vec3 instanceColors;
-attribute vec2 instancePickingColors;
 
 uniform mat4 uModel;
 uniform mat4 uView;
@@ -68,7 +54,6 @@ void main(void) {
   // Set up data for modules
   color = instanceColors;
   project_setNormal(normal);
-  picking_setPickingColor(vec3(0., instancePickingColors));
 
   // Vertex position (z coordinate undulates with time), and model rotates around center
   float delta = length(instanceOffsets);
@@ -84,13 +69,11 @@ varying vec3 color;
 void main(void) {
   gl_FragColor = vec4(color, 1.);
   gl_FragColor = dirlight_filterColor(gl_FragColor);
-  gl_FragColor = picking_filterColor(gl_FragColor);
 }
 `;
 
         const offsetsBuffer = new Buffer(gl, offsets);
         const colorsBuffer = new Buffer(gl, colors);
-        const pickingColorsBuffer = new Buffer(gl, pickingColors);
 
         super(
             gl,
@@ -105,7 +88,6 @@ void main(void) {
                     instanceSizes: new Float32Array([1]), // Constant attribute
                     instanceOffsets: [offsetsBuffer, {divisor: 1}],
                     instanceColors: [colorsBuffer, {divisor: 1}],
-                    instancePickingColors: [pickingColorsBuffer, {divisor: 1}]
                 }
             })
         );
@@ -114,11 +96,7 @@ void main(void) {
 
 export default class AppAnimationLoop extends AnimationLoop {
     constructor() {
-        super({createFramebuffer: true, debug: true});
-    }
-
-    static getInfo() {
-        return INFO_HTML;
+        super({createFramebuffer: true, debug: false});
     }
 
     onInitialize({gl, _animationLoop}) {
@@ -157,14 +135,6 @@ export default class AppAnimationLoop extends AnimationLoop {
 
         const {framebuffer, useDevicePixels, _mousePosition} = animationProps;
 
-        if (_mousePosition) {
-            const dpr = useDevicePixels ? getDevicePixelRatio() : 1;
-
-            const pickX = _mousePosition[0] * dpr;
-            const pickY = gl.canvas.height - _mousePosition[1] * dpr;
-
-            pickInstance(gl, pickX, pickY, this.cube, framebuffer);
-        }
 
         // Draw the cubes
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
@@ -173,34 +143,6 @@ export default class AppAnimationLoop extends AnimationLoop {
 
     onFinalize({gl}) {
         this.cube.delete();
-    }
-}
-
-function pickInstance(gl, pickX, pickY, model, framebuffer) {
-    framebuffer.clear({color: true, depth: true});
-    // Render picking colors
-    /* eslint-disable camelcase */
-    model.setUniforms({picking_uActive: 1});
-    model.draw({framebuffer});
-    model.setUniforms({picking_uActive: 0});
-
-    const color = readPixelsToArray(framebuffer, {
-        sourceX: pickX,
-        sourceY: pickY,
-        sourceWidth: 1,
-        sourceHeight: 1,
-        sourceFormat: gl.RGBA,
-        sourceType: gl.UNSIGNED_BYTE
-    });
-
-    if (color[0] + color[1] + color[2] > 0) {
-        model.updateModuleSettings({
-            pickingSelectedColor: color
-        });
-    } else {
-        model.updateModuleSettings({
-            pickingSelectedColor: null
-        });
     }
 }
 
