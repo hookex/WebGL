@@ -11,13 +11,32 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/babylon/index.html">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="447">
+                    <caret line="75" column="86" lean-forward="true" selection-start-line="75" selection-start-column="86" selection-end-line="75" selection-end-column="86" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/three-babylon.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+            <state relative-caret-position="102">
+              <caret line="23" column="104" lean-forward="true" selection-start-line="23" selection-start-column="104" selection-end-line="23" selection-end-column="104" />
             </state>
           </provider>
         </entry>
@@ -107,11 +126,6 @@
               <item name="WebGL" type="b2602c69:ProjectViewProjectNode" />
               <item name="WebGL" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="WebGL" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebGL" type="462c0819:PsiDirectoryNode" />
-              <item name="babylon" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -157,16 +171,15 @@
       <updated>1558061847739</updated>
       <workItem from="1558061851107" duration="1955000" />
       <workItem from="1558332770024" duration="21000" />
-      <workItem from="1558517199448" duration="16579000" />
+      <workItem from="1558517199448" duration="14625000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18675000" />
+    <option name="totallyTimeSpent" value="16721000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1392" height="877" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5421903" visible="true" weight="0.19407408" />
       <window_info id="Structure" order="1" sideWeight="0.45567867" side_tool="true" weight="0.22551093" />
@@ -182,7 +195,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.7686747" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" x="0" y="379" width="1392" height="521" id="Terminal" order="11" visible="true" weight="0.2952756" />
+      <window_info active="true" anchor="bottom" x="0" y="379" width="1392" height="521" id="Terminal" order="11" visible="true" weight="0.40944883" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3297568" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -309,6 +322,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/babylon/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="75" column="86" lean-forward="true" selection-start-line="75" selection-start-column="86" selection-end-line="75" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/BabylonLoader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
@@ -316,17 +336,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/babylon/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="71" column="64" lean-forward="true" selection-start-line="71" selection-start-column="64" selection-end-line="71" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/three-babylon.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        <state relative-caret-position="102">
+          <caret line="23" column="104" lean-forward="true" selection-start-line="23" selection-start-column="104" selection-end-line="23" selection-end-column="104" />
         </state>
       </provider>
     </entry>
