@@ -61,3 +61,4 @@ typings/
 .next
 
 .gitignore
+.DS_Store
