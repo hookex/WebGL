@@ -23,6 +23,7 @@
   "homepage": "https://github.com/hookex/WebGL#readme",
   "dependencies": {
     "luma.gl": "^7.0.1",
+    "three": "^0.105.2",
     "webpack": "^4.31.0"
   },
   "devDependencies": {
