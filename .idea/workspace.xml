@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28f8c711-063e-4a78-9081-47d267847ccb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebGL.xmind" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/babylon/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/babylon/scenes/Dude.babylon" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/babylon/textures/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/babylon/textures/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/babylon/textures/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/babylon/textures/3.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/luma.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map-three.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/three-babylon.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/threejs.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,17 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpack.config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+            <state relative-caret-position="150">
+              <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -53,8 +29,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="360">
+              <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -63,8 +39,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>INFO_HTML</find>
-      <find>getDevicePixelRatio</find>
       <find>pickInstance</find>
       <find>AppAnimationLoop</find>
       <find>InstancedCube</find>
@@ -92,7 +66,9 @@
       <find>onProgress</find>
       <find>onLoad</find>
       <find>clone</find>
+      <find>renderer</find>
       <find>scene</find>
+      <find>camera</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -114,8 +90,8 @@
         <option value="$PROJECT_DIR$/map-three.html" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/babylon/index.js" />
+        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/index.js" />
       </list>
     </option>
@@ -130,7 +106,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -138,10 +113,16 @@
               <item name="WebGL" type="b2602c69:ProjectViewProjectNode" />
               <item name="WebGL" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="WebGL" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebGL" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="NBKnowledgePane" />
     </panes>
   </component>
@@ -152,6 +133,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -171,6 +153,18 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -184,17 +178,42 @@
       <workItem from="1558061851107" duration="1955000" />
       <workItem from="1558332770024" duration="21000" />
       <workItem from="1558517199448" duration="14625000" />
-      <workItem from="1559791216956" duration="769000" />
+      <workItem from="1559791216956" duration="1200000" />
+      <workItem from="1559799989793" duration="42000" />
+      <workItem from="1559800044867" duration="2581000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17716000" />
+    <option name="totallyTimeSpent" value="20770000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1393" height="877" extended-state="6" />
+    <frame x="0" y="23" width="1393" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5421903" visible="true" weight="0.32938564" />
+      <window_info id="Structure" order="1" sideWeight="0.45567867" side_tool="true" weight="0.22551093" />
+      <window_info id="npm" order="2" sideWeight="0.45679012" side_tool="true" weight="0.22832981" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32677165" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3031496" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.16987951" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.7686747" />
+      <window_info anchor="bottom" id="TypeScript" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" x="0" y="379" width="1392" height="521" id="Terminal" order="11" weight="0.2808399" />
+      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3297568" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Favorites" order="4" sideWeight="0.4578097" side_tool="true" weight="0.13018598" />
+    </layout>
+    <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5421903" visible="true" weight="0.32568467" />
       <window_info id="Structure" order="1" sideWeight="0.45567867" side_tool="true" weight="0.22551093" />
       <window_info id="npm" order="2" sideWeight="0.45679012" side_tool="true" weight="0.22832981" />
@@ -216,22 +235,13 @@
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="right" id="Favorites" order="4" sideWeight="0.4578097" side_tool="true" weight="0.13018598" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="105">
-            <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md" />
     <entry file="file://$PROJECT_DIR$/webpack.config.local.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -266,13 +276,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/babylon/scenes/Dude.babylon">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret column="2177" selection-start-column="2177" selection-end-column="2177" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/babylon/scenes/Dude.babylon" />
     <entry file="file://$PROJECT_DIR$/static/EffectComposer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="101">
@@ -287,20 +291,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/three.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="21653" column="54" selection-start-line="21653" selection-start-column="54" selection-end-line="21653" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/babylon/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="75" column="86" lean-forward="true" selection-start-line="75" selection-start-column="86" selection-end-line="75" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/babylon/index.html" />
     <entry file="file://$PROJECT_DIR$/static/BabylonLoader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
@@ -308,34 +299,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/three-babylon.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="23" column="104" lean-forward="true" selection-start-line="23" selection-start-column="104" selection-end-line="23" selection-end-column="104" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/threejs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="30" lean-forward="true" selection-end-line="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/map-three.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/luma.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="115" column="31" selection-start-line="115" selection-start-column="31" selection-end-line="115" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/three-babylon.html" />
+    <entry file="file://$PROJECT_DIR$/threejs.html" />
+    <entry file="file://$PROJECT_DIR$/map-three.html" />
+    <entry file="file://$PROJECT_DIR$/luma.js" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
@@ -350,16 +317,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/babylon/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/babylon/index.js" />
     <entry file="file://$PROJECT_DIR$/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -367,10 +325,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/three.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="12444" column="18" lean-forward="true" selection-start-line="12444" selection-start-column="18" selection-end-line="12444" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="360">
+          <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
         </state>
       </provider>
     </entry>
