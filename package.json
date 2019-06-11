@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --progress --hot --open -d",
     "start-local": "webpack-dev-server --env.local --progress --hot --open -d",
-    "build": "webpack --env.local --env.analyze --profile --json > stats.json"
+    "build": "webpack --env.local --env.analyze --profile --json > stats.json",
+    "test": "node webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   "dependencies": {
     "luma.gl": "^7.0.1",
     "three": "^0.105.2",
+    "three-dat.gui": "^1.0.2",
     "webpack": "^4.31.0"
   },
   "devDependencies": {
