@@ -1,3 +1,4 @@
 // import "./solar"
 // import "./gltf"
-import "./geometry"
+// import "./buffer-geometry"
+import "./instanced-mesh"

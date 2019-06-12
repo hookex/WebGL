@@ -29,6 +29,7 @@
     "stats.js": "^0.17.0",
     "three": "^0.105.2",
     "three-dat.gui": "^1.0.2",
+    "three-instanced-mesh": "^0.96.2",
     "three-orbitcontrols": "^2.102.1",
     "webpack": "^4.31.0"
   },
