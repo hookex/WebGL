@@ -9,13 +9,44 @@ stats.begin();
 
 const clock = new THREE.Clock();
 
+const colors = [0x4F86EC, 0xD9503F, 0xF2BD42, 0x58A55C]
+
 
 let camera, scene, renderer, cluster, _v3;
 let dirLight, spotLight;
 const COUNT = 256 * 256;
 
+let bluePhongMaterial = new THREE.MeshPhongMaterial( {
+    color: colors[0],
+    shininess: 150,
+    specular: 0x222222,
+    flatShading: THREE.SmoothShading
+});
+
+let redPhongMaterial = new THREE.MeshPhongMaterial( {
+    color: colors[1],
+    shininess: 150,
+    specular: 0x222222,
+    flatShading: THREE.SmoothShading
+});
+
+let yellowPhongMaterial = new THREE.MeshPhongMaterial( {
+    color: colors[2],
+    shininess: 150,
+    specular: 0x222222,
+    flatShading: THREE.SmoothShading
+});
+
+function getPhongMaterial() {
+    const index = ~~(Math.random() * 3)
+    console.log('index', index)
+    return [bluePhongMaterial, redPhongMaterial, yellowPhongMaterial][index]
+}
+
 init();
 animate();
+
+
 
 function init() {
     camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 100000);
@@ -58,21 +89,20 @@ function init() {
         let boxGeometry = new THREE.BoxBufferGeometry(100, 100, 100);
         let textureMaterial = new THREE.MeshBasicMaterial({map: texture});
         let colorMaterial = new THREE.MeshBasicMaterial({color: new THREE.Color("#369369")});
+
         let phongMaterial = new THREE.MeshPhongMaterial( {
-            color: 0x369369,
+            color: colors[2],
             shininess: 150,
             specular: 0x222222,
-            shading: THREE.SmoothShading
+            flatShading: THREE.SmoothShading
         });
 
-
-        //the instance group
         cluster = new InstancedMesh(
             boxGeometry,                 //this is the same
             phongMaterial,
             COUNT,                       //instance count
             true,                       //is it dynamic
-            false,                      //does it have color
+            true,                      //does it have color
             true,                        //uniform scale, if you know that the placement function will not do a non-uniform scale, this will optimize the shader
         );
 
@@ -136,10 +166,11 @@ function animate() {
         // cluster.setQuaternionAt(i, _q);
         let {x, y, z} = cluster.getPositionAt(i)
         cluster.setPositionAt(i, _v3.set(x + Math.random() * delta - delta / 2, y + Math.random() * delta - delta / 2, z + Math.random() * delta - delta / 2));
+        cluster.setColorAt(i, new THREE.Color(colors[i % colors.length]));
         // cluster.setScaleAt(i, _v3.set(1, 1, 1));
         // cluster.setPositionAt(i, _v3.set(Math.random() * 12000 - 6000, Math.random() * 10000 - 5000, -Math.random() * 10000));
         cluster.needsUpdate('position')
-        cluster.needsUpdate('ratation')
+        cluster.needsUpdate('color')
     }
 
     renderer.render(scene, camera);
