@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+
 const OrbitControls = require('three-orbitcontrols')
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 
@@ -16,7 +17,7 @@ function main() {
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
     camera.position.set(0, 10, 20);
 
-    const controls = new THREE.OrbitControls(camera, canvas);
+    const controls = new OrbitControls(camera, canvas);
     controls.target.set(0, 5, 0);
     controls.update();
 
@@ -173,9 +174,9 @@ function main() {
 
             const loadedCars = root.getObjectByName('Cars');
             const fixes = [
-                { prefix: 'Car_08', y: 0,  rot: [Math.PI * .5, 0, Math.PI * .5], },
-                { prefix: 'CAR_03', y: 33, rot: [0, Math.PI, 0], },
-                { prefix: 'Car_04', y: 40, rot: [0, Math.PI, 0], },
+                {prefix: 'Car_08', y: 0, rot: [Math.PI * .5, 0, Math.PI * .5],},
+                {prefix: 'CAR_03', y: 33, rot: [0, Math.PI, 0],},
+                {prefix: 'Car_04', y: 40, rot: [0, Math.PI, 0],},
             ];
 
             root.updateMatrixWorld();
