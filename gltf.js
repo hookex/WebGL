@@ -1,7 +1,10 @@
 import * as THREE from 'three';
-
-const OrbitControls = require('three-orbitcontrols')
+import OrbitControls  from 'three-orbitcontrols'
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
+import Stats from '@drecom/stats.js'
+
+let stats = new Stats({maxFPS:60, maxMem:100}); // Set upper limit of graph
+document.body.appendChild( stats.dom );
 
 
 function main() {
@@ -223,6 +226,8 @@ function main() {
     const carTarget = new THREE.Vector3();
 
     function render(time) {
+        stats.begin();
+
         time *= 0.001;  // convert to seconds
 
         if (resizeRendererToDisplaySize(renderer)) {
@@ -258,6 +263,7 @@ function main() {
 
         renderer.render(scene, camera);
 
+        stats.end();
         requestAnimationFrame(render);
     }
 

@@ -1,3 +1,3 @@
 // import "./solar"
-import "./gltf"
-
+// import "./gltf"
+import "./geometry"
