@@ -12,31 +12,18 @@ animate();
 
 function init() {
     camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1000);
-    camera.position.z = 400;
-
-    // camera.position.set( 0, 150, 350 );
-
-    // camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000 );
-    camera.position.set( 0, 15, 35 );
+    camera.position.set(0, 0, 100);
 
     scene = new THREE.Scene();
 
     let texture = new THREE.TextureLoader().load('./static/crate.gif');
-    let geometry = new THREE.BoxBufferGeometry(200, 200, 200);
-    let material = new THREE.MeshBasicMaterial({map: texture});
-    // let mesh = new THREE.Mesh(geometry, material);
-    // scene.add(mesh);
-    //
-    // const myMeshes = new InstancedMesh(geometry, material, 1)
-    // scene.add(myMeshes);
-
 
     {
         //geometry to be instanced
-        let boxGeometry = new THREE.BoxBufferGeometry(2, 2, 2, 1, 1, 1);
+        let boxGeometry = new THREE.BoxBufferGeometry(5, 5, 5, 1, 1, 1);
 
         //material that the geometry will use
-        let material = new THREE.MeshBasicMaterial({color: new THREE.Color("white")});
+        let material = new THREE.MeshBasicMaterial({map: texture});
 
         //the instance group
         let cluster = new InstancedMesh(
@@ -52,8 +39,8 @@ function init() {
         let _q = new THREE.Quaternion();
 
         for (let i = 0; i < 10000; i++) {
-            cluster.setQuaternionAt(i, _q);
-            cluster.setPositionAt(i, _v3.set(Math.random(), Math.random(), Math.random()));
+            // cluster.setQuaternionAt(i, _q);
+            cluster.setPositionAt(i, _v3.set(Math.random() * 100 - 50, Math.random() * 100 - 50, -Math.random() * 100));
             cluster.setScaleAt(i, _v3.set(1, 1, 1));
         }
 
