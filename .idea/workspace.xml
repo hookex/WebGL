@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28f8c711-063e-4a78-9081-47d267847ccb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/huxiaohui.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/huxiaohui.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instanced-mesh.js" beforeDir="false" afterPath="$PROJECT_DIR$/instanced-mesh.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -30,11 +31,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/instanced-mesh.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+            <state relative-caret-position="155">
+              <caret line="130" column="20" selection-start-line="130" selection-start-column="20" selection-end-line="130" selection-end-column="20" />
               <folding>
                 <element signature="e#63#110#0" expanded="true" />
-                <marker date="1560342895748" expanded="true" signature="3131:3466" ph="..." />
+                <marker date="1560343764446" expanded="true" signature="4351:4692" ph="..." />
               </folding>
             </state>
           </provider>
@@ -69,7 +70,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cars</find>
       <find>loadedCars</find>
       <find>dump</find>
       <find>GLTFLoader</find>
@@ -99,6 +99,7 @@
       <find>caches</find>
       <find>needsUpdate</find>
       <find>COUNT</find>
+      <find>phongMaterial</find>
     </findStrings>
     <replaceStrings>
       <replace>let</replace>
@@ -157,45 +158,6 @@
             <path>
               <item name="WebGL" type="b2602c69:ProjectViewProjectNode" />
               <item name="WebGL" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebGL" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebGL" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebGL" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebGL" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="three" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebGL" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebGL" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="three" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebGL" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebGL" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="three" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="geometries" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebGL" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebGL" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="three" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="materials" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebGL" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebGL" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -268,18 +230,18 @@
       <workItem from="1559799989793" duration="42000" />
       <workItem from="1559800044867" duration="11405000" />
       <workItem from="1560136614275" duration="26874000" />
-      <workItem from="1560324329669" duration="10477000" />
+      <workItem from="1560324329669" duration="11342000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66945000" />
+    <option name="totallyTimeSpent" value="67810000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1393" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5421903" visible="true" weight="0.2161362" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5421903" visible="true" weight="0.2161362" />
       <window_info id="Structure" order="1" sideWeight="0.45567867" side_tool="true" weight="0.22551093" />
       <window_info id="npm" order="2" sideWeight="0.45679012" side_tool="true" weight="0.22832981" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -293,7 +255,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.7677165" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007429" side_tool="true" weight="0.29790026" />
-      <window_info active="true" anchor="bottom" x="0" y="379" width="1392" height="521" id="Terminal" order="11" sideWeight="0.49925706" visible="true" weight="0.2624672" />
+      <window_info anchor="bottom" x="0" y="379" width="1392" height="521" id="Terminal" order="11" sideWeight="0.49925706" visible="true" weight="0.2624672" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3297568" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -645,11 +607,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/instanced-mesh.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+        <state relative-caret-position="155">
+          <caret line="130" column="20" selection-start-line="130" selection-start-column="20" selection-end-line="130" selection-end-column="20" />
           <folding>
             <element signature="e#63#110#0" expanded="true" />
-            <marker date="1560342895748" expanded="true" signature="3131:3466" ph="..." />
+            <marker date="1560343764446" expanded="true" signature="4351:4692" ph="..." />
           </folding>
         </state>
       </provider>

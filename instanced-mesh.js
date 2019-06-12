@@ -10,7 +10,8 @@ stats.begin();
 const clock = new THREE.Clock();
 
 
-let camera, scene, renderer, cluster, _v3, caches = [];
+let camera, scene, renderer, cluster, _v3;
+let dirLight, spotLight;
 const COUNT = 256 * 256;
 
 init();
@@ -22,6 +23,34 @@ function init() {
 
     scene = new THREE.Scene();
 
+    // Lights
+    scene.add( new THREE.AmbientLight( 0x404040 ) );
+
+    spotLight = new THREE.SpotLight( 0xffffff );
+    spotLight.name = 'Spot Light';
+    spotLight.angle = Math.PI / 5;
+    spotLight.penumbra = 0.3;
+    spotLight.position.set( 12000, 12000, 12000 );
+    spotLight.castShadow = true;
+    spotLight.shadow.camera.near = 1;
+    spotLight.shadow.camera.far = 80;
+    spotLight.shadow.mapSize.width = 1024;
+    spotLight.shadow.mapSize.height = 1024;
+    scene.add( spotLight );
+
+    dirLight = new THREE.DirectionalLight( 0xffffff, 1 );
+    dirLight.name = 'Dir. Light';
+    dirLight.position.set( 12000, 12000, 12000 );
+    // dirLight.castShadow = true;
+    dirLight.shadow.camera.near = 1;
+    dirLight.shadow.camera.far = 10;
+    dirLight.shadow.camera.right = 15;
+    dirLight.shadow.camera.left = - 15;
+    dirLight.shadow.camera.top	= 15;
+    dirLight.shadow.camera.bottom = - 15;
+    dirLight.shadow.mapSize.width = 1024;
+    dirLight.shadow.mapSize.height = 1024;
+    scene.add( dirLight );
 
     let texture = new THREE.TextureLoader().load('./static/crate.gif');
 
@@ -29,14 +58,20 @@ function init() {
         let boxGeometry = new THREE.BoxBufferGeometry(100, 100, 100);
         let textureMaterial = new THREE.MeshBasicMaterial({map: texture});
         let colorMaterial = new THREE.MeshBasicMaterial({color: new THREE.Color("#369369")});
+        let phongMaterial = new THREE.MeshPhongMaterial( {
+            color: 0x369369,
+            shininess: 150,
+            specular: 0x222222,
+            shading: THREE.SmoothShading
+        });
 
 
         //the instance group
         cluster = new InstancedMesh(
             boxGeometry,                 //this is the same
-            textureMaterial,
+            phongMaterial,
             COUNT,                       //instance count
-            false,                       //is it dynamic
+            true,                       //is it dynamic
             false,                      //does it have color
             true,                        //uniform scale, if you know that the placement function will not do a non-uniform scale, this will optimize the shader
         );
@@ -45,7 +80,7 @@ function init() {
         let _q = new THREE.Quaternion();
 
         for (let i = 0; i < COUNT; i++) {
-            // cluster.setQuaternionAt(i, _q);
+            cluster.setQuaternionAt(i, _q);
             cluster.setPositionAt(i, _v3.set(Math.random() * 12000 - 6000, Math.random() * 10000 - 5000, -Math.random() * 10000));
             cluster.setScaleAt(i, _v3.set(1, 1, 1));
         }
@@ -93,17 +128,18 @@ function animate() {
 
     requestAnimationFrame(animate);
 
-    const delta = 100;
+    const delta = 10;
 
     // rotateObjects(delta);
     //
     for (let i = 0; i < COUNT; i++) {
         // cluster.setQuaternionAt(i, _q);
         let {x, y, z} = cluster.getPositionAt(i)
-        cluster.setPositionAt(i, _v3.set(x + Math.random() * delta - delta/2, y + Math.random() * delta - delta/2, z + Math.random() * delta - delta/2));
+        cluster.setPositionAt(i, _v3.set(x + Math.random() * delta - delta / 2, y + Math.random() * delta - delta / 2, z + Math.random() * delta - delta / 2));
         // cluster.setScaleAt(i, _v3.set(1, 1, 1));
         // cluster.setPositionAt(i, _v3.set(Math.random() * 12000 - 6000, Math.random() * 10000 - 5000, -Math.random() * 10000));
         cluster.needsUpdate('position')
+        cluster.needsUpdate('ratation')
     }
 
     renderer.render(scene, camera);
