@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="28f8c711-063e-4a78-9081-47d267847ccb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instanced-mesh.js" beforeDir="false" afterPath="$PROJECT_DIR$/instanced-mesh.js" afterDir="false" />
-    </list>
+    <list default="true" id="28f8c711-063e-4a78-9081-47d267847ccb" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -19,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/instanced-mesh.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="160" column="19" selection-start-line="160" selection-start-column="19" selection-end-line="160" selection-end-column="19" />
+            <state relative-caret-position="275">
+              <caret line="169" column="44" selection-start-line="169" selection-start-column="44" selection-end-line="169" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -199,12 +196,12 @@
       <workItem from="1560324329669" duration="11412000" />
       <workItem from="1560343941266" duration="74000" />
       <workItem from="1560344020754" duration="31000" />
-      <workItem from="1560344095387" duration="1143000" />
+      <workItem from="1560344095387" duration="1221000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69128000" />
+    <option name="totallyTimeSpent" value="69206000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1393" height="877" extended-state="6" />
@@ -215,7 +212,7 @@
       <window_info id="npm" order="2" sideWeight="0.45679012" side_tool="true" weight="0.22832981" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32677165" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19816273" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.19816273" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -224,7 +221,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.7677165" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007429" side_tool="true" weight="0.29790026" />
-      <window_info anchor="bottom" x="0" y="379" width="1392" height="521" id="Terminal" order="11" sideWeight="0.49925706" weight="0.2624672" />
+      <window_info active="true" anchor="bottom" x="0" y="379" width="1392" height="521" id="Terminal" order="11" sideWeight="0.49925706" visible="true" weight="0.2624672" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3297568" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -569,8 +566,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/instanced-mesh.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="160" column="19" selection-start-line="160" selection-start-column="19" selection-end-line="160" selection-end-column="19" />
+        <state relative-caret-position="275">
+          <caret line="169" column="44" selection-start-line="169" selection-start-column="44" selection-end-line="169" selection-end-column="44" />
         </state>
       </provider>
     </entry>
