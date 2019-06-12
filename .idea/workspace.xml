@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28f8c711-063e-4a78-9081-47d267847ccb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/gltf.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gltf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/scene.gltf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/solar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/babylon.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/babylon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gltf.js" beforeDir="false" afterPath="$PROJECT_DIR$/gltf.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -85,8 +77,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gltf.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+            <state relative-caret-position="182">
+              <caret line="97" column="60" lean-forward="true" selection-start-line="97" selection-start-column="60" selection-end-line="97" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -111,12 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>offsets</find>
-      <find>animationLoop</find>
-      <find>WEBGL</find>
-      <find>renderTarget</find>
-      <find>RenderPass</find>
-      <find>three.js</find>
       <find>shader</find>
       <find>Sha</find>
       <find>ShaderPass</find>
@@ -140,6 +126,12 @@
       <find>gui</find>
       <find>webpack</find>
       <find>Dat</find>
+      <find>loader</find>
+      <find>frameArea</find>
+      <find>direction</find>
+      <find>cars</find>
+      <find>loadedCars</find>
+      <find>OrbitControls</find>
       <find>GLTFLoader</find>
     </findStrings>
     <dirStrings>
@@ -263,18 +255,18 @@
       <workItem from="1559791216956" duration="1200000" />
       <workItem from="1559799989793" duration="42000" />
       <workItem from="1559800044867" duration="11405000" />
-      <workItem from="1560136614275" duration="21393000" />
+      <workItem from="1560136614275" duration="23169000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50987000" />
+    <option name="totallyTimeSpent" value="52763000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1388" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5421903" visible="true" weight="0.21322437" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5421903" visible="true" weight="0.21322437" />
       <window_info id="Structure" order="1" sideWeight="0.45567867" side_tool="true" weight="0.22551093" />
       <window_info id="npm" order="2" sideWeight="0.45679012" side_tool="true" weight="0.22832981" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -288,7 +280,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.7677165" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007429" side_tool="true" weight="0.29790026" />
-      <window_info active="true" anchor="bottom" x="0" y="379" width="1392" height="521" id="Terminal" order="11" sideWeight="0.49925706" visible="true" weight="0.35170603" />
+      <window_info anchor="bottom" x="0" y="379" width="1392" height="521" id="Terminal" order="11" sideWeight="0.49925706" visible="true" weight="0.097112864" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3297568" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -505,8 +497,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gltf.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+        <state relative-caret-position="182">
+          <caret line="97" column="60" lean-forward="true" selection-start-line="97" selection-start-column="60" selection-end-line="97" selection-end-column="60" />
         </state>
       </provider>
     </entry>

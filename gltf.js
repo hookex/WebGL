@@ -85,11 +85,31 @@ function main() {
         camera.lookAt(boxCenter.x, boxCenter.y, boxCenter.z);
     }
 
+    const cars = [];
     {
         const gltfLoader = new GLTFLoader();
         gltfLoader.load('https://threejsfundamentals.org/threejs/resources/models/cartoon_lowpoly_small_city_free_pack/scene.gltf', (gltf) => {
             const root = gltf.scene;
             scene.add(root);
+
+            const loadedCars = root.getObjectByName('Cars');
+            const fixes = [
+                { prefix: 'Car_08', rot: [Math.PI * .5, 0, Math.PI * .5], },
+                { prefix: 'CAR_03', rot: [0, Math.PI, 0], },
+                { prefix: 'Car_04', rot: [0, Math.PI, 0], },
+            ];
+
+            root.updateMatrixWorld();
+            for (const car of loadedCars.children.slice()) {
+                const fix = fixes.find(fix => car.name.startsWith(fix.prefix));
+                const obj = new THREE.Object3D();
+                car.getWorldPosition(obj.position);
+                car.position.set(0, 0, 0);
+                car.rotation.set(...fix.rot);
+                obj.add(car);
+                scene.add(obj);
+                cars.push(obj);
+            }
 
             // compute the box that contains all the stuff
             // from root and below
@@ -119,11 +139,17 @@ function main() {
         return needResize;
     }
 
-    function render() {
+    function render(time) {
+        time *= 0.001;  // convert to seconds
+
         if (resizeRendererToDisplaySize(renderer)) {
             const canvas = renderer.domElement;
             camera.aspect = canvas.clientWidth / canvas.clientHeight;
             camera.updateProjectionMatrix();
+        }
+
+        for (const car of cars) {
+            car.rotation.y = time;
         }
 
         renderer.render(scene, camera);
