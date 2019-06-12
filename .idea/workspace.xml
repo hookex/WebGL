@@ -18,8 +18,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gltf.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="42" column="38" lean-forward="true" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
+            <state relative-caret-position="190">
+              <caret line="228" column="22" lean-forward="true" selection-start-line="228" selection-start-column="8" selection-end-line="228" selection-end-column="22" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -30,26 +30,30 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/instanced-mesh.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="41" column="46" lean-forward="true" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
+            <state relative-caret-position="300">
+              <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+              <folding>
+                <element signature="e#63#110#0" expanded="true" />
+                <marker date="1560342895748" expanded="true" signature="3131:3466" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/geometry.js">
+        <entry file="file://$PROJECT_DIR$/node_modules/three/src/geometries/BoxGeometry.d.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="50" lean-forward="true" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
+            <state relative-caret-position="135">
+              <caret line="10" column="15" lean-forward="true" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/buffer-geometry.js">
+        <entry file="file://$PROJECT_DIR$/static/babylon.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="49" lean-forward="true" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
+            <state relative-caret-position="285">
+              <caret line="15" column="1640237" lean-forward="true" selection-start-line="15" selection-start-column="1640237" selection-end-line="15" selection-end-column="1640237" />
             </state>
           </provider>
         </entry>
@@ -65,17 +69,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dat</find>
-      <find>AxisGridHelper</find>
-      <find>gui</find>
-      <find>webpack</find>
-      <find>Dat</find>
-      <find>loader</find>
-      <find>frameArea</find>
-      <find>direction</find>
       <find>cars</find>
       <find>loadedCars</find>
-      <find>OrbitControls</find>
       <find>dump</find>
       <find>GLTFLoader</find>
       <find>renderer</find>
@@ -93,8 +88,17 @@
       <find>ShaderChunk</find>
       <find>InstancedMesh</find>
       <find>requestAnimationFrame</find>
+      <find>contr</find>
+      <find>con</find>
+      <find>OrbitControls</find>
+      <find>_v3</find>
+      <find>stats</find>
       <find>var</find>
+      <find>cache</find>
       <find>cluster</find>
+      <find>caches</find>
+      <find>needsUpdate</find>
+      <find>COUNT</find>
     </findStrings>
     <replaceStrings>
       <replace>let</replace>
@@ -102,6 +106,7 @@
     <dirStrings>
       <dir>$PROJECT_DIR$/node_modules/three/examples/jsm</dir>
       <dir>$PROJECT_DIR$/node_modules/three</dir>
+      <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -152,6 +157,40 @@
             <path>
               <item name="WebGL" type="b2602c69:ProjectViewProjectNode" />
               <item name="WebGL" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebGL" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebGL" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebGL" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebGL" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="three" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebGL" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebGL" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="three" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebGL" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebGL" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="three" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="geometries" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebGL" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebGL" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="three" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="materials" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WebGL" type="b2602c69:ProjectViewProjectNode" />
@@ -229,18 +268,18 @@
       <workItem from="1559799989793" duration="42000" />
       <workItem from="1559800044867" duration="11405000" />
       <workItem from="1560136614275" duration="26874000" />
-      <workItem from="1560324329669" duration="7939000" />
+      <workItem from="1560324329669" duration="10477000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64407000" />
+    <option name="totallyTimeSpent" value="66945000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1393" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5421903" visible="true" weight="0.2161362" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5421903" visible="true" weight="0.2161362" />
       <window_info id="Structure" order="1" sideWeight="0.45567867" side_tool="true" weight="0.22551093" />
       <window_info id="npm" order="2" sideWeight="0.45679012" side_tool="true" weight="0.22832981" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -254,7 +293,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.7677165" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007429" side_tool="true" weight="0.29790026" />
-      <window_info anchor="bottom" x="0" y="379" width="1392" height="521" id="Terminal" order="11" sideWeight="0.49925706" visible="true" weight="0.2624672" />
+      <window_info active="true" anchor="bottom" x="0" y="379" width="1392" height="521" id="Terminal" order="11" sideWeight="0.49925706" visible="true" weight="0.2624672" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3297568" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -476,13 +515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/solar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-419">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/three/src/math/Color.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -539,27 +571,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" lean-forward="true" selection-start-column="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/three/src/materials/MeshPhongMaterial.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gltf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="42" column="38" lean-forward="true" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -577,10 +592,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/solar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gltf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="228" column="22" lean-forward="true" selection-start-line="228" selection-start-column="8" selection-end-line="228" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/three/src/materials/Material.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="166" column="15" selection-start-line="166" selection-start-column="4" selection-end-line="166" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/babylon.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="1640237" lean-forward="true" selection-start-line="15" selection-start-column="1640237" selection-end-line="15" selection-end-column="1640237" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/three/src/geometries/BoxGeometry.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" column="15" lean-forward="true" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/instanced-mesh.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="41" column="46" lean-forward="true" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
+        <state relative-caret-position="300">
+          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+          <folding>
+            <element signature="e#63#110#0" expanded="true" />
+            <marker date="1560342895748" expanded="true" signature="3131:3466" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
