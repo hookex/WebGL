@@ -1,5 +1,3 @@
-import {BufferGeometry} from "three";
-
 const InstancedMesh = require('three-instanced-mesh')(THREE);
 
 import * as THREE from 'three';
@@ -12,7 +10,12 @@ stats.begin();
 document.body.appendChild(stats.dom);
 
 let cluster, _v3;
-const Count = 500
+const Count = 100;
+
+let GIndex = parseInt(window.localStorage.getItem("GIndex") || "0")
+window.localStorage.setItem("GIndex", ++GIndex + "")
+
+GIndex = 0
 
 function main() {
     const canvas = document.querySelector('#c');
@@ -23,9 +26,9 @@ function main() {
     const fov = 45;
     const aspect = 2;  // the canvas default
     const near = 0.1;
-    const far = 10000;
+    const far = 20000;
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    camera.position.set(0, 10, 1000);
+    camera.position.set(4000, 2000, 4000);
 
     const controls = new OrbitControls(camera, canvas);
     controls.target.set(0, 5, 0);
@@ -33,28 +36,6 @@ function main() {
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color('#DEFEFF');
-
-    //
-    // {
-    //     const planeSize = 400;
-    //
-    //     const loader = new THREE.TextureLoader();
-    //     const texture = loader.load('https://threejsfundamentals.org/threejs/resources/images/checker.png');
-    //     texture.wrapS = THREE.RepeatWrapping;
-    //     texture.wrapT = THREE.RepeatWrapping;
-    //     texture.magFilter = THREE.NearestFilter;
-    //     const repeats = planeSize / 2;
-    //     texture.repeat.set(repeats, repeats);
-    //
-    //     const planeGeo = new THREE.PlaneBufferGeometry(planeSize, planeSize);
-    //     const planeMat = new THREE.MeshPhongMaterial({
-    //         map: texture,
-    //         side: THREE.DoubleSide,
-    //     });
-    //     const mesh = new THREE.Mesh(planeGeo, planeMat);
-    //     mesh.rotation.x = Math.PI * -.5;
-    //     scene.add(mesh);
-    // }
 
     {
         const skyColor = 0xB1E1FF;  // light blue
@@ -68,43 +49,73 @@ function main() {
         const gltfLoader = new GLTFLoader();
         gltfLoader.load('https://threejsfundamentals.org/threejs/resources/models/cartoon_lowpoly_small_city_free_pack/scene.gltf', (gltf) => {
             const root = gltf.scene;
+
+
             const car = root.getObjectByName("CAR_03_World_ap_0")
 
             let glTFGeometry = []
+            let singleGlTFGeometry = new THREE.BufferGeometry()
+
             gltf.scene.traverse(function (child) {
+                if (child.name.toLocaleLowerCase().indexOf("car") >= 0) {
+                    child.visible = false
+                }
+
                 if (child.castShadow !== undefined) {
                     child.castShadow = true;
                     child.receiveShadow = true;
                 }
 
-                console.log('type', child.name)
                 if (child.isMesh) {
-                    glTFGeometry.push(child.geometry)
+                    glTFGeometry.push(child)
+                    // singleGlTFGeometry = singleGlTFGeometry.merge(child.geometry, 0)
                 }
             });
 
-            console.log('glTFGeometry', glTFGeometry)
+            scene.add(gltf.scene);
 
-            console.log('gltf', gltf, car)
+            {
+                let clone = root.clone()
 
-            let colorMaterial = new THREE.MeshBasicMaterial({color: new THREE.Color("#369369")});
+                clone.position.x = 0
+                clone.position.z = 2100
+                scene.add(clone)
+            }
+
+            {
+                let clone = root.clone()
+
+                clone.position.x = 2100
+                clone.position.z = 0
+                scene.add(clone)
+            }
+
+            {
+                let clone = root.clone()
+
+                clone.position.x = 2100
+                clone.position.z = 2100
+                scene.add(clone)
+            }
+
+            console.log('glTFGeometry[GIndex]', glTFGeometry[GIndex])
 
             cluster = new InstancedMesh(
-                glTFGeometry[1],
-                colorMaterial,
-                Count,                       //instance count
-                true,                       //is it dynamic
-                false,                      //does it have color
-                true,                        //uniform scale, if you know that the placement function will not do a non-uniform scale, this will optimize the shader
+                glTFGeometry[GIndex].geometry,
+                glTFGeometry[GIndex].material,
+                Count,
+                true,
+                false,
+                true,
             );
 
             _v3 = new THREE.Vector3();
             let _q = new THREE.Quaternion();
 
             for (let i = 0; i < Count; i++) {
-                cluster.setQuaternionAt(i, _q);
-                cluster.setPositionAt(i, _v3.set(Math.random() * 1200 - 600, Math.random() * 1200 - 600, -Math.random() * 1000));
-                cluster.setScaleAt(i, _v3.set(1, 1, 1));
+                // cluster.setQuaternionAt(i, _q);
+                cluster.setPositionAt(i, _v3.set(Math.random() * -2100 * 2, 0, Math.random() * -2100 * 2));
+                cluster.setScaleAt(i, _v3.set(2, 2, 2));
             }
 
             scene.add(cluster);
@@ -128,7 +139,6 @@ function main() {
             camera.aspect = canvas.clientWidth / canvas.clientHeight;
             camera.updateProjectionMatrix();
         }
-
         renderer.render(scene, camera);
         stats.update();
         requestAnimationFrame(render);
