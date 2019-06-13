@@ -7,8 +7,6 @@ let stats = new Stats({maxFPS: 60, maxMem: 100}); // Set upper limit of graph
 document.body.appendChild(stats.dom);
 stats.begin();
 
-const clock = new THREE.Clock();
-
 const colors = [0x4F86EC, 0xD9503F, 0xF2BD42, 0x58A55C]
 
 
