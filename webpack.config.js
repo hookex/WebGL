@@ -6,11 +6,11 @@ const CONFIG = {
     mode: 'development',
 
     entry: {
-        app: resolve('./luma.js')
+        app: resolve('./index.js')
     },
 
     plugins: [new HtmlWebpackPlugin({
-        title: 'Instancing',
+        title: 'three.js',
         template: './index.html'
     })]
 };

@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --progress --hot --open -d",
     "start-local": "webpack-dev-server --env.local --progress --hot --open -d",
-    "build": "webpack --env.local --env.analyze --profile --json > stats.json"
+    "build": "webpack --env.local --env.analyze --profile --json > stats.json",
+    "test": "node webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,14 @@
   },
   "homepage": "https://github.com/hookex/WebGL#readme",
   "dependencies": {
+    "@drecom/stats.js": "^1.0.0",
     "luma.gl": "^7.0.1",
+    "stats": "^1.0.0",
+    "stats.js": "^0.17.0",
+    "three": "^0.105.2",
+    "three-dat.gui": "^1.0.2",
+    "three-instanced-mesh": "^0.96.2",
+    "three-orbitcontrols": "^2.102.1",
     "webpack": "^4.31.0"
   },
   "devDependencies": {
