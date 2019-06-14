@@ -9,13 +9,13 @@ let stats = new Stats({maxFPS: 60, maxMem: 100}); // Set upper limit of graph
 stats.begin();
 document.body.appendChild(stats.dom);
 
-let cluster, _v3;
+let cluster, _v3, _q;
 const Count = 100;
 
 let GIndex = parseInt(window.localStorage.getItem("GIndex") || "0")
 window.localStorage.setItem("GIndex", ++GIndex + "")
 
-GIndex = 0
+GIndex = 0;
 
 function main() {
     const canvas = document.querySelector('#c');
@@ -98,8 +98,6 @@ function main() {
                 scene.add(clone)
             }
 
-            console.log('glTFGeometry[GIndex]', glTFGeometry[GIndex])
-
             cluster = new InstancedMesh(
                 glTFGeometry[GIndex].geometry,
                 glTFGeometry[GIndex].material,
@@ -109,16 +107,20 @@ function main() {
                 true,
             );
 
+            console.log('cluster', cluster)
+
             _v3 = new THREE.Vector3();
-            let _q = new THREE.Quaternion();
+            _q = new THREE.Quaternion();
 
             for (let i = 0; i < Count; i++) {
-                // cluster.setQuaternionAt(i, _q);
-                cluster.setPositionAt(i, _v3.set(Math.random() * -2100 * 2, 0, Math.random() * -2100 * 2));
-                cluster.setScaleAt(i, _v3.set(2, 2, 2));
+                cluster.setQuaternionAt(i, _q);
+                cluster.setPositionAt(i, _v3.set(i * 100, 1000, i * 100));
+                cluster.setScaleAt(i, _v3.set(1, 1, 1));
             }
 
             scene.add(cluster);
+
+            render()
         });
     }
 
@@ -133,18 +135,38 @@ function main() {
         return needResize;
     }
 
+    let startQuan = 0
+
     function render() {
         if (resizeRendererToDisplaySize(renderer)) {
             const canvas = renderer.domElement;
             camera.aspect = canvas.clientWidth / canvas.clientHeight;
             camera.updateProjectionMatrix();
         }
+
+        const delta = 0.001;
+
+        for (let i = 0; i < Count; i++) {
+            startQuan += delta
+
+            cluster.setQuaternionAt(i, _q);
+            let {x, y, z} = cluster.getPositionAt(i)
+            cluster.setPositionAt(i, _v3.set(x + startQuan, y, z));
+
+            let q = cluster.getQuaternionAt(i)
+
+            q.setFromAxisAngle(new THREE.Vector3(0, 1, 0), startQuan)
+
+            cluster.setQuaternionAt(i, q);
+
+            cluster.needsUpdate('position')
+            cluster.needsUpdate('quaternion')
+        }
+
         renderer.render(scene, camera);
         stats.update();
         requestAnimationFrame(render);
     }
-
-    requestAnimationFrame(render);
 }
 
 main();
