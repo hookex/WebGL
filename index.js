@@ -9,6 +9,12 @@ const canvas = document.querySelector('canvas')
 
 const worker = createWorker(canvas, workerUrl)
 
+window.addEventListener('resize', () => {
+    worker.post({
+        type: 'resize', width: canvas.clientWidth, height: canvas.clientHeight
+    })
+})
+
 // import "./instanced-mesh"
 // import "./solar"
 // import "./gltf"
