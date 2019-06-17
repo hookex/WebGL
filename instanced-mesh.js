@@ -9,7 +9,6 @@ stats.begin();
 
 const colors = [0x4F86EC, 0xD9503F, 0xF2BD42, 0x58A55C]
 
-
 let camera, scene, renderer, cluster, _v3;
 let dirLight, spotLight;
 const COUNT = 256 * 256;
@@ -44,10 +43,8 @@ function getPhongMaterial() {
 init();
 animate();
 
-
-
 function init() {
-    camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 100000);
+    camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1 || 15000, 100000);
     camera.position.set(0, 0, 6000);
 
     scene = new THREE.Scene();
@@ -96,13 +93,13 @@ function init() {
         });
 
         cluster = new InstancedMesh(
-            boxGeometry,                 //this is the same
-            phongMaterial,
-            COUNT,                       //instance count
-            true,                       //is it dynamic
-            true,                      //does it have color
-            true,                        //uniform scale, if you know that the placement function will not do a non-uniform scale, this will optimize the shader
-        );
+        boxGeometry,                 //this is the same
+        phongMaterial,
+        COUNT,                       //instance count
+        true,                       //is it dynamic
+        true,                      //does it have color
+        true,                        //uniform scale, if you know that the placement function will not do a non-uniform scale, this will optimize the shader
+    );
 
         _v3 = new THREE.Vector3();
         let _q = new THREE.Quaternion();
@@ -152,14 +149,9 @@ function rotateObjects(dt) {
     currentMesh.needsUpdate('quaternion');
 }
 
-function animate() {
-
-    requestAnimationFrame(animate);
-
+function run() {
     const delta = 10;
 
-    // rotateObjects(delta);
-    //
     for (let i = 0; i < COUNT; i++) {
         // cluster.setQuaternionAt(i, _q);
         let {x, y, z} = cluster.getPositionAt(i)
@@ -170,6 +162,13 @@ function animate() {
         cluster.needsUpdate('position')
         cluster.needsUpdate('color')
     }
+}
+
+function animate() {
+
+    requestAnimationFrame(animate);
+
+    run()
 
     renderer.render(scene, camera);
 

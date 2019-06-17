@@ -4,11 +4,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const CONFIG = {
     mode: 'development',
-
     entry: {
-        app: resolve('./index.js')
+        'app': './index.js',
     },
-
+    module: {
+        rules: [
+            {
+                test: /\.worker\.js$/,
+                use: { loader: 'worker-loader' }
+            }
+        ]
+    },
     plugins: [new HtmlWebpackPlugin({
         title: 'three.js',
         template: './index.html'
