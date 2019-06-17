@@ -2,22 +2,12 @@
 // import "./instancing-with-three-1.2"
 // import "./instancing-with-three-1.3"
 
+import createWorker from 'offscreen-canvas/create-worker'
 
-import Worker from './webgl.worker.js';
+const workerUrl = document.querySelector('[rel=preload][as=script]').href
+const canvas = document.querySelector('canvas')
 
-const worker = new Worker();
-
-worker.postMessage({ a: 1 });
-worker.onmessage = function (event) {};
-
-worker.addEventListener("message", function (event) {});
-
-// import createWorker from 'offscreen-canvas/create-worker'
-// const canvas = document.querySelector('canvas')
-//
-// const worker = createWorker(canvas, '/webgl.worker.js', e => {
-//     // Messages from the worker
-// })
+const worker = createWorker(canvas, workerUrl)
 
 // import "./instanced-mesh"
 // import "./solar"

@@ -3,17 +3,9 @@ const {resolve} = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const CONFIG = {
-    mode: 'development',
     entry: {
         'app': './index.js',
-    },
-    module: {
-        rules: [
-            {
-                test: /\.worker\.js$/,
-                use: { loader: 'worker-loader' }
-            }
-        ]
+        'webgl-worker': './webgl-worker.js'
     },
     plugins: [new HtmlWebpackPlugin({
         title: 'three.js',
