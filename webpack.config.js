@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CONFIG = {
     entry: {
         'app': './index.js',
-        'webgl-worker': './webgl-worker.js'
     },
     plugins: [new HtmlWebpackPlugin({
         title: 'three.js',
