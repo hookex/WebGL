@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28f8c711-063e-4a78-9081-47d267847ccb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/wv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deploy.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gltf-instancing.js" beforeDir="false" afterPath="$PROJECT_DIR$/gltf-instancing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instanced-mesh.js" beforeDir="false" afterPath="$PROJECT_DIR$/instanced-mesh.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instancing-with-three-1.1.js" beforeDir="false" afterPath="$PROJECT_DIR$/instancing-with-three-1.1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +102,8 @@
       <workItem from="1560755946155" duration="9227000" />
       <workItem from="1560843872460" duration="3282000" />
       <workItem from="1561014929386" duration="62000" />
-      <workItem from="1565949611306" duration="7050000" />
+      <workItem from="1565949611306" duration="8139000" />
+      <workItem from="1566185380990" duration="15667000" />
     </task>
     <servers />
   </component>
@@ -113,7 +115,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

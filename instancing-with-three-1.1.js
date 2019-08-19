@@ -14,6 +14,7 @@ function init() {
 
     const myGeom = new THREE.BoxGeometry()
     const myMaterial = new THREE.MeshBasicMaterial()
+
     myGroup = new THREE.Group()
     for (let i = 0; i < 100; i++) {
         const myMesh = new THREE.Mesh(myGeom, myMaterial)

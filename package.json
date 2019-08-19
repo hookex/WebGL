@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --progress --open -d",
     "start-local": "webpack-dev-server --env.local --progress --hot --open -d",
-    "build": "webpack --env.local --env.analyze --profile --json > stats.json",
+    "build": "webpack",
     "test": "node webpack.config.js"
   },
   "repository": {

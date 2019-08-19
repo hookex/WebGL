@@ -86,7 +86,7 @@ function main() {
                 let clone = root.clone()
 
                 clone.position.x = 2100
-                clone.position.z = 0
+                clone.position.z = 0;
                 scene.add(clone)
             }
 
@@ -106,8 +106,6 @@ function main() {
                 false,
                 true,
             );
-
-            console.log('cluster', cluster)
 
             _v3 = new THREE.Vector3();
             _q = new THREE.Quaternion();
