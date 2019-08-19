@@ -226,14 +226,14 @@ function init(count) {
         const color = 0x1b82c3;
         const intensity = 1;
         const light = new THREE.DirectionalLight(color, intensity);
-        light.distance = 50000;
+        light.distance = 30000;
 
         light.castShadow = true;
 
         // light.shadow.mapSize.width = 51200;  // default
         // light.shadow.mapSize.height = 51200; // default
         light.shadow.camera.near = 1;    // default
-        light.shadow.camera.far = 40000;     // default
+        light.shadow.camera.far = 20000;     // default
         light.position.set(10000, 20000, 10000);
         light.target.position.set(0, 0, 0);
         scene.add(light);
