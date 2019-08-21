@@ -4,15 +4,11 @@ import Stats from '@drecom/stats.js'
 import * as THREE from 'three';
 import * as dat from 'dat.gui';
 
-const FizzyText = function () {
-    this.instanceCount = 10;
+const ControlText = function () {
+    this.instanceCount = 1;
     this.widthSegments = 13;
     this.heightSegments = 14;
 
-    // this.widthSegments = 3;
-    // this.heightSegments = 3;
-
-    // this.side = THREE.DoubleSide;
     this.ambientLight = true;
     this.hemisphereLight = false;
     this.directionalLight = false;
@@ -31,20 +27,19 @@ const FizzyText = function () {
     this.frustumCulled = false;
 };
 
-let timer = null;
-
-let gui = new dat.GUI({
+let controlGui = new dat.GUI({
     width: 400,
 });
-let effectGui = new dat.GUI({
+
+let lightGui = new dat.GUI({
     width: 300
 });
 
-let textController = new FizzyText();
-let f1 = gui.addFolder('参数');
+let text = new ControlText();
+let f1 = controlGui.addFolder('参数');
 f1.open();
-let f3 = gui.addFolder('结果');
-f3.open();
+let f2 = controlGui.addFolder('结果');
+f2.open();
 
 class ColorGUIHelper {
     constructor(object, prop) {
@@ -61,72 +56,70 @@ class ColorGUIHelper {
     }
 }
 
-
 window.onload = function () {
-    const countController = f1.add(textController, 'instanceCount', 1, 10000)
+    const countController = f1.add(text, 'instanceCount', 1, 10000)
         .name('实例数量')
         .step(1);
     countController.onFinishChange(begin);
 
-    const widthSegmentsController = f1.add(textController, 'widthSegments', 3, 100)
+    const widthSegmentsController = f1.add(text, 'widthSegments', 3, 100)
         .name('球宽片段数')
         .step(1);
     widthSegmentsController.onFinishChange(begin);
 
-    const heightSegmentsController = f1.add(textController, 'heightSegments', 2, 100)
+    const heightSegmentsController = f1.add(text, 'heightSegments', 2, 100)
         .name('球高片段数')
         .step(1);
     heightSegmentsController.onFinishChange(begin);
 
 
-    f1.add(textController, 'ambientLight').name('环境光')
+    f1.add(text, 'ambientLight').name('环境光')
         .onFinishChange(begin);
 
-    f1.add(textController, 'hemisphereLight').name('半球光')
+    f1.add(text, 'hemisphereLight').name('半球光')
         .onFinishChange(begin);
 
-    f1.add(textController, 'directionalLight').name('平行光')
+    f1.add(text, 'directionalLight').name('平行光')
         .onFinishChange(begin);
 
-    f1.add(textController, 'pointLight').name('点光源')
+    f1.add(text, 'pointLight').name('点光源')
         .onFinishChange(begin);
 
-    f1.add(textController, 'spotLight').name('聚光灯')
+    f1.add(text, 'spotLight').name('聚光灯')
         .onFinishChange(begin);
 
-    f1.add(textController, 'antialias').name('抗锯齿')
+    f1.add(text, 'antialias').name('抗锯齿')
         .onFinishChange(begin);
 
-    f1.add(textController, 'shadow').name('阴影')
+    f1.add(text, 'shadow').name('阴影')
         .onFinishChange(begin);
 
-    f1.add(textController, 'depthTest').name('深度检测')
+    f1.add(text, 'depthTest').name('深度检测')
         .onFinishChange(begin);
 
-    f1.add(textController, 'transparent').name('透明度')
+    f1.add(text, 'transparent').name('透明度')
         .onFinishChange(begin);
 
-    f1.add(textController, 'pixelRatio', [1, 2]).name('像素比')
+    f1.add(text, 'pixelRatio', [1, 2]).name('像素比')
 
-    f1.add(textController, 'precision', ['highp', 'mediump', 'lowp']).name('精度')
+    f1.add(text, 'precision', ['highp', 'mediump', 'lowp']).name('精度')
         .onFinishChange(begin);
 
-    // f1.add(textController, 'side', [THREE.FrontSide, THREE.DoubleSide, THREE.BackSide])
-    //     .onFinishChange(begin);
-
-    f1.add(textController, 'powerPreference', ['default', 'high-performance', 'low-power'])
+    f1.add(text, 'powerPreference', ['default', 'high-performance', 'low-power'])
         .onFinishChange(begin);
 
-    f1.add(textController, 'frustumCulled')
+    f1.add(text, 'frustumCulled')
         .name('视野剪裁')
         .onFinishChange(begin);
 
-    f3.add(textController, 'triangleCount').name('三角形数量');
-    f3.add(textController, 'perSphereVertexCount').name('实例顶点数');
-    f3.add(textController, 'frame').name('帧数');
-    f3.add(textController, 'calls').name('API调用次数');
-    f3.add(textController, 'points');
-    f3.add(textController, 'lines');
+    f2.add(text, 'triangleCount').name('三角形数量');
+    f2.add(text, 'perSphereVertexCount').name('实例顶点数');
+    f2.add(text, 'frame').name('帧数');
+    f2.add(text, 'calls').name('API调用次数');
+    f2.add(text, 'points');
+    f2.add(text, 'lines');
+    f2.add(text, 'geometries');
+    f2.add(text, 'textures');
 };
 
 let stats = new Stats({maxFPS: 60, maxMem: 10000}); // Set upper limit of graph
@@ -135,48 +128,21 @@ stats.begin();
 
 const colors = [0x4F86EC, 0xD9503F, 0xF2BD42, 0x58A55C]
 
+let timer = null;
 let camera, scene, renderer, cluster;
 let angle = 0;
 let scaleFactor = 1;
 
-let bluePhongMaterial = new THREE.MeshPhongMaterial({
-    color: colors[0],
-    shininess: 150,
-    specular: 0x222222,
-    flatShading: THREE.SmoothShading
-});
-
-let redPhongMaterial = new THREE.MeshPhongMaterial({
-    color: colors[1],
-    shininess: 150,
-    specular: 0x222222,
-    flatShading: THREE.SmoothShading
-});
-
-let yellowPhongMaterial = new THREE.MeshPhongMaterial({
-    color: colors[2],
-    shininess: 150,
-    specular: 0x222222,
-    flatShading: THREE.SmoothShading
-});
-
-function getPhongMaterial() {
-    const index = ~~(Math.random() * 3)
-    console.log('index', index)
-    return [bluePhongMaterial, redPhongMaterial, yellowPhongMaterial][index]
-}
-
 function begin() {
     clear();
-    init(textController.instanceCount);
+    init(text.instanceCount);
     animate();
 }
 
 begin();
 
 function init(count) {
-    effectGui.destroy();
-    effectGui = new dat.GUI({
+    lightGui = new dat.GUI({
         width: 300
     });
 
@@ -191,13 +157,13 @@ function init(count) {
      * 环境光
      * making the darks not too dark.
      */
-    if (textController.ambientLight) {
+    if (text.ambientLight) {
         // see color = materialColor * light.color * light.intensity;
         const light = new THREE.AmbientLight(0xffffff);
         scene.add(light);
 
-        effectGui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('环境光：颜色');
-        effectGui.add(light, 'intensity', 0, 2, 0.01).name('环境光：强度');
+        lightGui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('环境光：颜色');
+        lightGui.add(light, 'intensity', 0, 2, 0.01).name('环境光：强度');
     }
 
     /**
@@ -205,16 +171,16 @@ function init(count) {
      * In that way it's best used in combination with some other light
      * or a substitute for an AmbientLight.
      */
-    if (textController.hemisphereLight) {
+    if (text.hemisphereLight) {
         const skyColor = 0xB1E1FF;  // light blue
         const groundColor = 0xB97A20;  // brownish orange
         const intensity = 0.5;
         const light = new THREE.HemisphereLight(skyColor, groundColor, intensity);
         scene.add(light);
 
-        effectGui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('半球光：天空色');
-        effectGui.addColor(new ColorGUIHelper(light, 'groundColor'), 'value').name('半球光：地色');
-        effectGui.add(light, 'intensity', 0, 2, 0.01).name('半球光：光强');
+        lightGui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('半球光：天空色');
+        lightGui.addColor(new ColorGUIHelper(light, 'groundColor'), 'value').name('半球光：地色');
+        lightGui.add(light, 'intensity', 0, 2, 0.01).name('半球光：光强');
     }
 
 
@@ -222,7 +188,7 @@ function init(count) {
      * 平行光
      * is often used to represent the sun.
      */
-    if (textController.directionalLight) {
+    if (text.directionalLight) {
         const color = 0x1b82c3;
         const intensity = 1;
         const light = new THREE.DirectionalLight(color, intensity);
@@ -239,11 +205,11 @@ function init(count) {
         scene.add(light);
         scene.add(light.target);
 
-        effectGui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('平行光：颜色');
-        effectGui.add(light, 'intensity', 0, 2, 0.01).name('平行光：光强');
-        effectGui.add(light.position, 'x', 0, 10000).name('平行光：光源x');
-        effectGui.add(light.position, 'z', 0, 10000).name('平行光：光源y');
-        effectGui.add(light.position, 'y', 0, 20000).name('平行光：光源z');
+        lightGui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('平行光：颜色');
+        lightGui.add(light, 'intensity', 0, 2, 0.01).name('平行光：光强');
+        lightGui.add(light.position, 'x', 0, 10000).name('平行光：光源x');
+        lightGui.add(light.position, 'z', 0, 10000).name('平行光：光源y');
+        lightGui.add(light.position, 'y', 0, 20000).name('平行光：光源z');
 
         // scene.add(new THREE.CameraHelper(camera))
         light.shadowCameraVisible = true;
@@ -253,7 +219,7 @@ function init(count) {
     /**
      * 点光源
      */
-    if (textController.pointLight) {
+    if (text.pointLight) {
         const color = 0xFFFFFF;
         const intensity = 10;
         const light = new THREE.PointLight(color, intensity);
@@ -271,7 +237,7 @@ function init(count) {
         scene.add(light);
     }
 
-    if (textController.spotLight) {
+    if (text.spotLight) {
         const color = 0xffffff;
         const intensity = 1;
         const light = new THREE.SpotLight(color, intensity);
@@ -289,21 +255,21 @@ function init(count) {
         scene.add(light);
         scene.add(light.target);
 
-        effectGui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('聚光灯：颜色');
-        effectGui.add(light, 'intensity', 0, 2, 0.01).name('聚光灯：光强');
-        effectGui.add(light, 'angle', 0, Math.PI/2, 0.01).name('角度');
-        effectGui.add(light.position, 'x', 0, 10000).name('聚光灯：光源x');
-        effectGui.add(light.position, 'y', 0, 10000).name('聚光灯：光源y');
-        effectGui.add(light.position, 'z', 0, 10000).name('聚光灯：光源z');
-        effectGui.add(light.target.position, 'x', 0, 10000).name('聚光灯目标：光源x');
-        effectGui.add(light.target.position, 'z', 0, 10000).name('聚光灯目标：光源y');
-        effectGui.add(light.target.position, 'y', 0, 10000).name('聚光灯目标：光源z');
+        lightGui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('聚光灯：颜色');
+        lightGui.add(light, 'intensity', 0, 2, 0.01).name('聚光灯：光强');
+        lightGui.add(light, 'angle', 0, Math.PI/2, 0.01).name('角度');
+        lightGui.add(light.position, 'x', 0, 10000).name('聚光灯：光源x');
+        lightGui.add(light.position, 'y', 0, 10000).name('聚光灯：光源y');
+        lightGui.add(light.position, 'z', 0, 10000).name('聚光灯：光源z');
+        lightGui.add(light.target.position, 'x', 0, 10000).name('聚光灯目标：光源x');
+        lightGui.add(light.target.position, 'z', 0, 10000).name('聚光灯目标：光源y');
+        lightGui.add(light.target.position, 'y', 0, 10000).name('聚光灯目标：光源z');
     }
 
     // let texture = new THREE.TextureLoader().load('./static/crate.gif');
 
     {
-        let geometry = new THREE.SphereBufferGeometry(100, textController.widthSegments, textController.heightSegments);
+        let geometry = new THREE.SphereBufferGeometry(100, text.widthSegments, text.heightSegments);
         // let textureMaterial = new THREE.MeshBasicMaterial({map: texture});
 
         let mat = new THREE.MeshLambertMaterial({
@@ -311,17 +277,16 @@ function init(count) {
             color: colors[2],
             specular: 0x222222,
             flatShading: THREE.SmoothShading,
-            transparent: textController.transparent,
+            transparent: text.transparent,
         });
 
-        if (textController.transparent) {
+        if (text.transparent) {
             mat.opacity = 0.7;
         }
 
-        textController.perSphereVertexCount = geometry.index.count;
-        for (let i in f3.__controllers) {
-            f3.__controllers[i].updateDisplay();
-        }
+        text.perSphereVertexCount = geometry.index.count;
+
+        updateGui();
 
         cluster = new InstancedMesh(
             geometry,                 //this is the same
@@ -332,13 +297,13 @@ function init(count) {
             true,                        //uniform scale, if you know that the placement function will not do a non-uniform scale, this will optimize the shader
         );
 
-        let _v3 = new THREE.Vector3();
-        let _q = new THREE.Quaternion();
+        let v3 = new THREE.Vector3();
+        let q = new THREE.Quaternion();
 
         for (let i = 0; i < count; i++) {
-            cluster.setQuaternionAt(i, _q);
+            cluster.setQuaternionAt(i, q);
             cluster.setPositionAt(i,
-                _v3.set(
+                v3.set(
                     Math.random() * 10000,
                     Math.random() * 10000,
                     Math.random() * 10000
@@ -346,14 +311,13 @@ function init(count) {
             );
 
             let scale = Math.random() + 0.5;
-            cluster.setScaleAt(i, _v3.set(scale, scale, scale));
+            cluster.setScaleAt(i, v3.set(scale, scale, scale));
         }
 
         cluster.visible = true;
-        cluster.castShadow = textController.shadow;
-        cluster.receiveShadow = textController.shadow;
-
-        cluster.frustumCulled = textController.frustumCulled;
+        cluster.castShadow = text.shadow;
+        cluster.receiveShadow = text.shadow;
+        cluster.frustumCulled = text.frustumCulled;
 
         {
             const cubeSize = 50;
@@ -362,7 +326,7 @@ function init(count) {
                 color: '#CCC',
                 side: THREE.DoubleSide,
             });
-            cubeMat.depthTest = textController.depthTest;
+            cubeMat.depthTest = text.depthTest;
             const mesh = new THREE.Mesh(cubeGeo, cubeMat);
             mesh.castShadow = true;
             mesh.receiveShadow = true;
@@ -377,14 +341,14 @@ function init(count) {
             let material = new THREE.MeshLambertMaterial({
                 color: 0x369369,
                 side: THREE.DoubleSide,
-                transparent: textController.transparent,
+                transparent: text.transparent,
             });
 
-            if (textController.transparent) {
+            if (text.transparent) {
                 material.opacity = 0.7;
             }
 
-            material.depthTest = textController.depthTest;
+            material.depthTest = text.depthTest;
 
             let plane = new THREE.Mesh(geometry, material);
             plane.position.x = 5000;
@@ -392,8 +356,8 @@ function init(count) {
             plane.position.z = 5000;
             plane.rotateX(Math.PI / 2);
 
-            plane.receiveShadow = textController.shadow;
-            plane.castShadow = textController.shadow;
+            plane.receiveShadow = text.shadow;
+            plane.castShadow = text.shadow;
 
             scene.add(plane);
         }
@@ -404,12 +368,12 @@ function init(count) {
     const canvas = document.querySelector('#c');
     renderer = new THREE.WebGLRenderer({
         canvas,
-        antialias: textController.antialias, // 抗锯齿, 太耗性能
-        precision: textController.precision,
-        powerPreference: textController.powerPreference,
+        antialias: text.antialias, // 抗锯齿, 太耗性能
+        precision: text.precision,
+        powerPreference: text.powerPreference,
     });
 
-    renderer.shadowMap.enabled = textController.shadow;
+    renderer.shadowMap.enabled = text.shadow;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
     // renderer.shadowMapSoft = true;
@@ -422,14 +386,13 @@ function init(count) {
     // renderer.shadowMapWidth = 10000;
     // renderer.shadowMapHeight = 10000;
 
-    console.log('renderer.shadowMap', renderer.shadowMap)
 
     const controls = new OrbitControls(camera, canvas);
     controls.target.set(5000, 5000, 5000);
     controls.update();
 
     // window.devicePixelRatio
-    renderer.setPixelRatio(textController.pixelRatio);
+    renderer.setPixelRatio(text.pixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight, true);
 
     console.log(renderer.info)
@@ -446,36 +409,42 @@ function onWindowResize() {
 
 function run() {
     const delta = 40;
+    let v3 = new THREE.Vector3();
 
     for (let i = 0; i < cluster.numInstances; i++) {
-        let {x, y, z} = cluster.getPositionAt(i)
-        let _v3 = new THREE.Vector3();
-
-        cluster.setPositionAt(i,
-            _v3.set(
-                x,
-                y + Math.random() * delta - delta / 2,
-                z)
-        );
+        {
+            let {x, y, z} = cluster.getPositionAt(i)
+            cluster.setPositionAt(i,
+                v3.set(
+                    x,
+                    y + Math.random() * delta - delta / 2,
+                    z)
+            );
+        }
 
         cluster.setColorAt(i, new THREE.Color(colors[parseInt(Math.random() * colors.length)]));
 
-        let quaternion = cluster.getQuaternionAt(i);
-        angle += 0.1;
-        quaternion.setFromAxisAngle(new THREE.Vector3(0, 1, 0), angle);
-        cluster.setQuaternionAt(i, quaternion);
-
-        let scale = cluster.getScaleAt(i).x;
-
-        if (scale < 0.2) {
-            scaleFactor = 1;
-        } else if (scale > 2) {
-            scaleFactor = -1;
+        {
+            let quaternion = cluster.getQuaternionAt(i);
+            angle += 0.1;
+            quaternion.setFromAxisAngle(new THREE.Vector3(0, 1, 0), angle);
+            cluster.setQuaternionAt(i, quaternion);
         }
 
-        scale = scale + scaleFactor * 0.03;
+        {
+            let scale = cluster.getScaleAt(i).x;
 
-        cluster.setScaleAt(i, _v3.set(scale, scale, scale));
+            if (scale < 0.2) {
+                scaleFactor = 1;
+            } else if (scale > 2) {
+                scaleFactor = -1;
+            }
+
+            scale = scale + scaleFactor * 0.03;
+
+            cluster.setScaleAt(i, v3.set(scale, scale, scale));
+        }
+
         cluster.needsUpdate()
         // cluster.needsUpdate('quaternion');
         // cluster.needsUpdate('position')
@@ -496,7 +465,7 @@ function animate() {
     const {width, height} = canvas;
 
     // 像素比
-    const {pixelRatio} = textController;
+    const {pixelRatio} = text;
     renderer.setPixelRatio(pixelRatio)
 
     const needResize = width !== clientWidth * pixelRatio || height !== clientHeight * pixelRatio;
@@ -513,15 +482,9 @@ function animate() {
 
     renderer.render(scene, camera);
 
-    textController.triangleCount = renderer.info.render.triangles;
-    textController.frame = renderer.info.render.frame;
-    textController.points = renderer.info.render.points;
-    textController.lines = renderer.info.render.lines;
-    textController.calls = renderer.info.render.calls;
+    updateResultText();
 
-    for (let i in f3.__controllers) {
-        f3.__controllers[i].updateDisplay();
-    }
+    updateGui();
 
     stats.update();
 
@@ -529,7 +492,30 @@ function animate() {
 }
 
 function clear() {
+    lightGui && lightGui.destroy();
+    renderer && renderer.clear();
+
     if (timer) {
         cancelAnimationFrame(timer);
     }
+}
+
+function updateGui() {
+    for (let i in f1.__controllers) {
+        f1.__controllers[i].updateDisplay();
+    }
+
+    for (let i in f2.__controllers) {
+        f2.__controllers[i].updateDisplay();
+    }
+}
+
+function updateResultText() {
+    text.triangleCount = renderer.info.render.triangles;
+    text.frame = renderer.info.render.frame;
+    text.points = renderer.info.render.points;
+    text.lines = renderer.info.render.lines;
+    text.calls = renderer.info.render.calls;
+    text.geometries = renderer.info.memory.geometries;
+    text.textures = renderer.info.memory.textures;
 }
