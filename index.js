@@ -8,3 +8,4 @@ import "./instanced-mesh"
 // import "./buffer-geometry"
 // import "./gltf-instancing"
 
+// import './skeleton';

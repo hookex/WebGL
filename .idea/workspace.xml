@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28f8c711-063e-4a78-9081-47d267847ccb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/skeleton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/deploy.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instanced-mesh.js" beforeDir="false" afterPath="$PROJECT_DIR$/instanced-mesh.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,6 +30,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
   <component name="ProjectId" id="1PVButyLP6ahqS1LEd98e7N9Bdu" />
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -36,15 +44,16 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="com.maddyhome.idea.vim.ui.VimEmulationConfigurable" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/models" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\code\WebGL\models" />
+      <recent name="$PROJECT_DIR$/models" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -102,6 +111,24 @@
       <workItem from="1566354927540" duration="173000" />
       <workItem from="1566355254366" duration="414000" />
       <workItem from="1566356534724" duration="1591000" />
+      <workItem from="1567071830742" duration="5476000" />
+      <workItem from="1567133558244" duration="1545000" />
+      <workItem from="1567145688402" duration="1113000" />
+      <workItem from="1567410121585" duration="1930000" />
+      <workItem from="1567477368083" duration="29000" />
+      <workItem from="1567477835841" duration="211000" />
+      <workItem from="1567478054766" duration="1570000" />
+      <workItem from="1567492392719" duration="6000" />
+      <workItem from="1567497835202" duration="2241000" />
+      <workItem from="1567507926881" duration="599000" />
+      <workItem from="1567565507170" duration="20000" />
+      <workItem from="1569400106320" duration="16000" />
+      <workItem from="1573025549504" duration="660000" />
+      <workItem from="1573027070012" duration="3216000" />
+      <workItem from="1573110322095" duration="1199000" />
+      <workItem from="1573609691876" duration="6352000" />
+      <workItem from="1573630429850" duration="1854000" />
+      <workItem from="1573645445011" duration="453000" />
     </task>
     <task id="LOCAL-00001" summary="done">
       <created>1566213307222</created>

@@ -4,10 +4,33 @@ import Stats from '@drecom/stats.js'
 import * as THREE from 'three';
 import * as dat from 'dat.gui';
 
+const search = location.search.split('?')[1] || '0';
+let antialias = false;
+
+if (search === '1') {
+    antialias = true;
+}
+
 const ControlText = function () {
-    this.instanceCount = 1;
-    this.widthSegments = 13;
-    this.heightSegments = 14;
+    // 结果
+    this.instanceCount = 30000;
+    // 调参
+    this.shadow = false;
+    this.transparent = false;
+    this.antialias = antialias;
+    this.pixelRatio = 1;
+
+    // this.shadow = true;
+    // this.transparent = true;
+    // this.antialias = true;
+    // this.pixelRatio = 2;
+
+
+    this.animate = true;
+
+    this.widthSegments = 10;
+    this.heightSegments = 2;
+
 
     this.ambientLight = true;
     this.hemisphereLight = false;
@@ -15,12 +38,8 @@ const ControlText = function () {
     this.pointLight = false;
     this.spotLight = true;
 
-    this.shadow = true;
-    this.depthTest = true;
+    this.depthTest = false;
 
-    this.transparent = true;
-    this.antialias = true;
-    this.pixelRatio = 2;
 
     this.precision = 'highp';
     this.powerPreference = 'default';
@@ -57,7 +76,7 @@ class ColorGUIHelper {
 }
 
 window.onload = function () {
-    const countController = f1.add(text, 'instanceCount', 1, 10000)
+    const countController = f1.add(text, 'instanceCount', 1, 10000000)
         .name('实例数量')
         .step(1);
     countController.onFinishChange(begin);
@@ -71,6 +90,8 @@ window.onload = function () {
         .name('球高片段数')
         .step(1);
     heightSegmentsController.onFinishChange(begin);
+
+    f1.add(text, 'animate').name('运动');
 
 
     f1.add(text, 'ambientLight').name('环境光')
@@ -97,7 +118,7 @@ window.onload = function () {
     f1.add(text, 'depthTest').name('深度检测')
         .onFinishChange(begin);
 
-    f1.add(text, 'transparent').name('透明度')
+    f1.add(text, 'transparent').name('透明')
         .onFinishChange(begin);
 
     f1.add(text, 'pixelRatio', [1, 2]).name('像素比')
@@ -136,6 +157,7 @@ let scaleFactor = 1;
 function begin() {
     clear();
     init(text.instanceCount);
+    run();
     animate();
 }
 
@@ -257,7 +279,7 @@ function init(count) {
 
         lightGui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('聚光灯：颜色');
         lightGui.add(light, 'intensity', 0, 2, 0.01).name('聚光灯：光强');
-        lightGui.add(light, 'angle', 0, Math.PI/2, 0.01).name('角度');
+        lightGui.add(light, 'angle', 0, Math.PI / 2, 0.01).name('角度');
         lightGui.add(light.position, 'x', 0, 10000).name('聚光灯：光源x');
         lightGui.add(light.position, 'y', 0, 10000).name('聚光灯：光源y');
         lightGui.add(light.position, 'z', 0, 10000).name('聚光灯：光源z');
@@ -318,6 +340,7 @@ function init(count) {
         cluster.castShadow = text.shadow;
         cluster.receiveShadow = text.shadow;
         cluster.frustumCulled = text.frustumCulled;
+        cluster.renderOrder = 10000;
 
         {
             const cubeSize = 50;
@@ -453,7 +476,9 @@ function run() {
 }
 
 function animate() {
-    run();
+    if (text.animate) {
+        run();
+    }
 
     const canvas = renderer.domElement;
 
@@ -487,7 +512,6 @@ function animate() {
     updateGui();
 
     stats.update();
-
     timer = requestAnimationFrame(animate);
 }
 
