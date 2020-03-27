@@ -13,7 +13,7 @@ if (search === '1') {
 
 const ControlText = function () {
     // 结果
-    this.instanceCount = 30000;
+    this.instanceCount = 300;
     // 调参
     this.shadow = false;
     this.transparent = false;
@@ -76,7 +76,7 @@ class ColorGUIHelper {
 }
 
 window.onload = function () {
-    const countController = f1.add(text, 'instanceCount', 1, 10000000)
+    const countController = f1.add(text, 'instanceCount', 1, 100000)
         .name('实例数量')
         .step(1);
     countController.onFinishChange(begin);

@@ -14,8 +14,8 @@ npm run build
 ######################通用配置######################
 
 # 机器信息
-ip=206.189.178.10
-user=root
+ip=118.24.23.94
+user=hooke
 
 # 第一次免密登录
 # ssh-copy-id $user@$ip
@@ -27,4 +27,4 @@ dir=/home/hooke/www/$projectName/
 ssh $user@$ip "mkdir -p $dir"
 rsync -r  --verbose --checksum --progress $dist $user@$ip:$dir/
 
-echo 地址: http://cdn.hooke.site/$projectName/
+echo 地址: http://cdn.hooke.life/$projectName/
